@@ -4,6 +4,7 @@
 #include <string>
 
 #include "QueueTest.h"
+#include "icollection_test.h"
 
 using namespace std;
 int main() {
@@ -13,5 +14,11 @@ int main() {
     queueTest.testDequeue();
     queueTest.testShow();
 
+    ICollectionTest iCollectionTest = ICollectionTest();
+    iCollectionTest.testAdd();
+    iCollectionTest.testClear();
+    iCollectionTest.testContains();
+    iCollectionTest.testRemove();
+    iCollectionTest.testGetIterator();
     return 0;
 }
