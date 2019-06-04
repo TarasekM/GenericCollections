@@ -3,4 +3,4 @@ project(Queue)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Queue main.cpp queue.h node.h QueueTest.h)
+add_executable(Queue main.cpp queue.h node.h QueueTest.h ICollection.h icollection_test.h Person.cpp Person.h)
