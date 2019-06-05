@@ -17,9 +17,9 @@ public:
     ~Person() = default;
     Person(std::string name, std::string surname, int age);
 
-    const int getAge() const { return age; }
-    const std::string getName() const { return name; }
-    const std::string getSurname() const { return surname; }
+    int getAge() const { return age; }
+    std::string getName() const { return name; }
+    std::string getSurname() const { return surname; }
 
     bool equals(Person other);
 };
