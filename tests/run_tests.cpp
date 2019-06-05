@@ -3,12 +3,12 @@
 #include <memory>
 #include <string>
 
-#include "QueueTest.h"
-#include "icollection_test.h"
+#include "queue_tests.h"
+#include "icollection_tests.h"
 
 using namespace std;
 int main() {
-    QueueTest queueTest = QueueTest(5);
+    queue_tests queueTest = queue_tests(5);
     queueTest.testIsEmpty();
     queueTest.testEnqueue();
     queueTest.testDequeue();

@@ -1,9 +1,11 @@
 #ifndef QUEUE_ICOLLECTION_TESTS_H
 #define QUEUE_ICOLLECTION_TESTS_H
 
-#include "ICollection.h"
+#include <iostream>
+#include "../ICollection.h"
 #include <cassert>
-#include "Person.h"
+#include "../Person.h"
+
 
 class ICollectionTest{
 private:
@@ -54,9 +56,15 @@ public:
         people.add(first_person);
         people.add(second_person);
 
-        const Person *iterator = people.getIterator();
-        assert(iterator[0].getName() == "Maciek");
-        assert(iterator[1].getName() == "Kamil");
+        Iterator<Person> *iterator = people.getIterator();
+
+        iterator-> moveNext();
+        assert(iterator-> current().getName() == first_person.getName());
+        iterator-> moveNext();
+        assert(iterator-> current().getName() == second_person.getName());
+        iterator->reset();
+        iterator->moveNext();
+        assert(iterator-> current().getName() == first_person.getName());
     }
 };
 #endif //QUEUE_ICOLLECTION_TESTS_H

@@ -1,13 +1,13 @@
 #ifndef QUEUE_QUEUETEST_H
 #define QUEUE_QUEUETEST_H
 
-#include "queue.h"
+#include "../queue.h"
 #include <cassert>
 
-class QueueTest{
+class queue_tests{
     int n;
 public:
-    explicit QueueTest(int n){ this -> n  = n; }
+    explicit queue_tests(int n){ this -> n  = n; }
 
     void testIsEmpty(){
         auto *queue = new Queue <int>(n);
