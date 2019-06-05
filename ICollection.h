@@ -1,31 +1,30 @@
 #ifndef QUEUE_ICOLLECTION_H
 #define QUEUE_ICOLLECTION_H
 
+#include "Iterator.h"
 template <typename T> class ICollection;
 template <typename T>
-class ICollection{
+class ICollection : Iterator<T>{
 
 private:
-    T *items;
-    int size;
     // T must implement basic constructor
     void resize(int newSize) {
 
         T *pts = new T [ newSize ];
-        int minSize = ( newSize > size ? size : newSize ) ;
+        int minSize = ( newSize > this-> size ? this-> size : newSize ) ;
 
         for ( int i = 0; i < minSize ; i ++)
-            pts [ i ] = items[ i ];
-        delete [] items ;
-        size = newSize ;
-        items = pts ;
+            pts [ i ] = this-> items[ i ];
+        delete [] this-> items ;
+        this-> size = newSize ;
+        this-> items = pts ;
     }
 
 public:
 
     void add(T item) {
-        resize(size + 1);
-        items[size -1] = item;
+        resize(this-> size + 1);
+        this-> items[this-> size -1] = item;
     }
 
 
@@ -38,8 +37,8 @@ public:
      * */
 
     bool contains(const T &item) {
-        for (int i = 0; i < size; i++){
-            if (items[i].equals(item)){
+        for (int i = 0; i < this-> size; i++){
+            if (this-> items[i].equals(item)){
                 return true;
             }
         }
@@ -51,31 +50,31 @@ public:
       * */
 
     void remove(const T &item){
-        if (size == 0)
+        if (this-> size == 0)
             return;
 
         int pos = 0;
-        for (int i = 0; i < size; i++){
-            if (items[i].equals(item)){
+        for (int i = 0; i < this-> size; i++){
+            if (this-> items[i].equals(item)){
                 break;
             }
             pos++;
         }
 
-        for ( int i = pos ; i < size - 1; i ++) {
-            items[i] = items[i + 1];
+        for ( int i = pos ; i < this-> size - 1; i ++) {
+            this-> items[i] = this-> items[i + 1];
         }
 
-        resize(size - 1);
+        resize(this-> size - 1);
 
     }
 
     int length() {
-        return size;
+        return this-> size;
     }
 
-    const T *getIterator(){
-        return items;
+    Iterator<T> *getIterator(){
+        return this-> get();
     };
     
 };
