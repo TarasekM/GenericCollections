@@ -4,7 +4,7 @@
 #include "Iterator.h"
 template <typename T> class ICollection;
 template <typename T>
-class ICollection : Iterator<T>{
+class ICollection : public Iterator<T>{
 
 private:
     // T must implement basic constructor
@@ -22,11 +22,13 @@ private:
 
 public:
 
+    using Iterator<T>::Iterator;
+    ~ICollection<T>() = default;
+
     void add(T item) {
         resize(this-> size + 1);
         this-> items[this-> size -1] = item;
     }
-
 
     void clear() {
         resize(0);
@@ -73,9 +75,11 @@ public:
         return this-> size;
     }
 
+public:
     Iterator<T> *getIterator(){
         return this-> get();
     };
+
     
 };
 #endif //QUEUE_ICOLLECTION_H
