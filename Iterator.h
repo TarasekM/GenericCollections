@@ -15,8 +15,13 @@ protected:
     }
 
 public:
-    Iterator() = default;
-    ~Iterator() = default;
+    Iterator<T>(){
+        items = new T[0];
+    }
+
+    ~Iterator<T>(){
+        delete [] items;
+    }
 
     T current(){
         return items[currentPos];
