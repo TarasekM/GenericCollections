@@ -6,6 +6,7 @@
 #include "queue_tests.h"
 #include "icollection_tests.h"
 #include "list_test.h"
+#include "stack_tests.h"
 
 using namespace std;
 int main() {
@@ -18,6 +19,9 @@ int main() {
 
     list_test listTest = list_test();
     listTest.run_tests();
+
+    stack_test stackTest = stack_test();
+    stackTest.run_tests();
 
     return 0;
 }
