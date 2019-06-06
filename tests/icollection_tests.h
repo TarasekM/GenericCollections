@@ -13,6 +13,14 @@ private:
     Person second_person = Person("Kamil", "Macieg", 23);
 
 public:
+
+    void run_tests(){
+        testAdd();
+        testClear();
+        testContains();
+        testRemove();
+        testGetIterator();
+    }
     void testAdd(){
         ICollection<Person> items = ICollection<Person>();
         items.add(first_person);
@@ -65,6 +73,7 @@ public:
         iterator->reset();
         iterator->moveNext();
         assert(iterator-> current().getName() == first_person.getName());
+
     }
 };
 #endif //QUEUE_ICOLLECTION_TESTS_H

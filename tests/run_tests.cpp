@@ -5,20 +5,19 @@
 
 #include "queue_tests.h"
 #include "icollection_tests.h"
+#include "list_test.h"
 
 using namespace std;
 int main() {
     queue_tests queueTest = queue_tests(5);
-    queueTest.testIsEmpty();
-    queueTest.testEnqueue();
-    queueTest.testDequeue();
-    queueTest.testShow();
+    queueTest.run_tests();
+
 
     ICollectionTest iCollectionTest = ICollectionTest();
-    iCollectionTest.testAdd();
-    iCollectionTest.testClear();
-    iCollectionTest.testContains();
-    iCollectionTest.testRemove();
-    iCollectionTest.testGetIterator();
+    iCollectionTest.run_tests();
+
+    list_test listTest = list_test();
+    listTest.run_tests();
+
     return 0;
 }

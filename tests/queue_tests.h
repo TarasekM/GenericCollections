@@ -9,6 +9,13 @@ class queue_tests{
 public:
     explicit queue_tests(int n){ this -> n  = n; }
 
+    void run_tests(){
+        testShow();
+        testDequeue();
+        testEnqueue();
+        testIsEmpty();
+    }
+
     void testIsEmpty(){
         auto *queue = new Queue <int>(n);
         assert(queue->isEmpty());
@@ -47,6 +54,7 @@ public:
         queue-> enqueue(1);
         queue-> enqueue(2);
         queue-> showItems();
+
         assert(queue-> getHead()->getItem() == 5);
         assert(queue-> getTail()->getItem() == 2);
     }
