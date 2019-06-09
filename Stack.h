@@ -4,25 +4,25 @@
 template <typename T> class Stack;
 
 template <typename T>
-class Stack : ICollection<T>{
+class Stack : private ICollection<T>{
 public:
     Stack<T>() = default;
     ~Stack<T>() = default;
 
     bool isEmpty(){
-
+        return this->size == 0;
     }
 
     void push(const T &obj){
-
+        this->add(obj);
     }
 
-    T pop(const T &obj){
-
+    void pop(){
+        this-> remove(this-> top());
     }
 
     T top(){
-
+        return this-> items[this-> size - 1];
     }
 
 };
