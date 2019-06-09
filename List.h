@@ -5,6 +5,8 @@
 #include <iostream>
 #include "ICollection.h"
 #include "Iterator.h"
+#include "Stack.h"
+
 
 template <typename T> class List;
 
@@ -45,14 +47,10 @@ public:
         return this-> items[i];
     }
 
-    //TODO need stack first
     void removeAll(const T &obj){
-
-//        for (int i = 0; i < this-> size; i++){
-//            if(this-> items[i].equals(obj)){
-//
-//            }
-//        }
+        while(this-> contains(obj)){
+            this-> remove(obj);
+        }
     }
 
     void removeAt(int i){
