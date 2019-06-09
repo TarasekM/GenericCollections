@@ -3,4 +3,4 @@ project(Queue)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Queue tests/run_tests.cpp queue.h node.h tests/queue_tests.h ICollection.h tests/icollection_tests.h Person.cpp Person.h Iterator.h List.h tests/list_test.h Stack.h tests/stack_tests.h)
+add_executable(Queue tests/run_tests.cpp queue.h node.h tests/queue_tests.h ICollection.h tests/icollection_tests.h Models/Person.cpp Models/Person.h Iterator.h List.h tests/list_test.h Stack.h tests/stack_tests.h Models/Int.h)
