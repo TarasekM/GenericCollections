@@ -2,6 +2,7 @@
 #define QUEUE_ICOLLECTION_H
 
 #include "Iterator.h"
+#include <iostream>
 template <typename T> class ICollection;
 template <typename T>
 class ICollection : public Iterator<T>{
@@ -80,6 +81,17 @@ public:
         return this-> get();
     };
 
+    /*
+     * T must implement toString()
+     */
+
+    void showItems(){
+        std::cout << "Items for <" << typeid(T).name() << "> :" << std::endl;
+        Iterator<T> *iterator = this-> getIterator();
+        while (iterator->moveNext()){
+            std::cout << iterator-> current().toString() << std::endl;
+        }
+    }
     
 };
 #endif //QUEUE_ICOLLECTION_H
