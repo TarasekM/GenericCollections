@@ -1,70 +1,31 @@
 #ifndef QUEUE_QUEUE_H
 #define QUEUE_QUEUE_H
 
-#include <iostream>
-#include "node.h"
-template <typename T> class Queue;
+#include "ICollection.h"
+template  <typename T> class Queue;
 
 template <typename T>
-class Queue{
-private:
-    Node <T> *head;
-    Node <T> *tail;
-    int size{};
-    int maxSize{};
+class Queue : protected ICollection<T>{
 public:
     Queue() = default;
+    ~Queue() = default;
 
-    explicit Queue(int n){
-        head = new Node <T>(-1);
-        tail = new Node <T>(-1);
-        maxSize = n;
-        size = 0;
+    bool isEmpty(){
+        return this-> size == 0;
     }
 
-    bool isEmpty(){ return size == 0; }
-
-    int enqueue(T item){
-        if (size >= maxSize){
-            return -1;
-        }
-        auto *newNode = new Node<T>(item);
-        newNode->setNext(new Node<T>(-1));
-        if (size == 0){
-            head = newNode;
-            tail = newNode;
-        }else{
-            tail->setNext(newNode);
-            newNode->setPrevious(tail);
-            tail = newNode;
-        }
-        size++;
-        return 1;
+    void enqueue(const T &obj){
+        this-> add(obj);
     }
 
-    int dequeue(){
-        if (isEmpty()){
-            return -1;
-        }
-        int item = head -> getItem();
-        head = head ->getNext();
-        size--;
-        return item;
+    T dequeue(){
+        T tmp = this-> items[0];
+        this-> remove(this-> items[0]);
+        return tmp;
     }
 
-    Node <T> *getHead(){ return head; }
-    Node <T> *getTail(){ return tail; }
-    int getSize(){ return size; }
-
-    void showItems(){
-        Node <T> *node = head;
-        while(node->getItem() != -1){
-            std::cout << node->getItem() << " ";
-            node = node->getNext();
-        }
-        std::cout << std::endl;
+    T first(){
+        return this-> items[0];
     }
-
 };
-
 #endif //QUEUE_QUEUE_H
