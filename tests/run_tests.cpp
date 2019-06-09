@@ -3,15 +3,16 @@
 #include <memory>
 #include <string>
 
-#include "queue_tests.h"
+#include "queue_node_tests.h"
 #include "icollection_tests.h"
 #include "list_test.h"
 #include "stack_tests.h"
+#include "queue_tests.h"
 
 using namespace std;
 int main() {
-    queue_tests queueTest = queue_tests(5);
-    queueTest.run_tests();
+    queue_node_tests queueNodeTests = queue_node_tests(5);
+    queueNodeTests.run_tests();
 
 
     ICollectionTest iCollectionTest = ICollectionTest();
@@ -22,6 +23,9 @@ int main() {
 
     stack_test stackTest = stack_test();
     stackTest.run_tests();
+
+    queue_tests queueTests = queue_tests();
+    queueTests.run_tests();
 
     return 0;
 }
