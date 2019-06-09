@@ -4,7 +4,7 @@
 template <typename T> class Stack;
 
 template <typename T>
-class Stack : private ICollection<T>{
+class Stack : protected ICollection<T>{
 public:
     Stack<T>() = default;
     ~Stack<T>() = default;
