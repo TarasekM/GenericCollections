@@ -22,6 +22,11 @@ public:
     std::string getSurname() const { return surname; }
 
     bool equals(Person other);
+
+    std::string toString(){
+        std::string personAsString = "Name : " + name + " Surname : " + surname + " Age : " + std::to_string(age);
+        return personAsString;
+    }
 };
 
 
