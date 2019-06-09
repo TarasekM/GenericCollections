@@ -4,7 +4,7 @@
 #include <iostream>
 #include "../ICollection.h"
 #include <cassert>
-#include "../Person.h"
+#include "../Models/Person.h"
 
 
 class ICollectionTest{

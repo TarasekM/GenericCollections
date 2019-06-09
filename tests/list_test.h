@@ -3,7 +3,7 @@
 
 #include "../List.h"
 #include "../ICollection.h"
-#include "../Person.h"
+#include "../Models/Person.h"
 #include <cassert>
 #include <iostream>
 
@@ -123,7 +123,8 @@ public:
         list.add(first_person);
         list.removeAll(first_person);
         assert(list.length() == 1);
-        assert(list.indexOf(first_person) == -1);
+        int i = list.indexOf(first_person);
+        assert(i == -1);
         assert(list.indexOf(second_person) == 0);
     }
 
