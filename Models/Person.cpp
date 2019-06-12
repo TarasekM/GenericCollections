@@ -23,3 +23,14 @@ bool Person::equals(Person other) {
             this-> surname == other.getSurname() &&
             this-> age == other.getAge());
 }
+
+bool Person::equals(Person *other) {
+    return (this-> name == other-> getName() &&
+            this-> surname == other-> getSurname() &&
+            this-> age == other-> getAge());
+}
+
+std::string Person::toString(){
+    std::string personAsString = "Name : " + name + " Surname : " + surname + " Age : " + std::to_string(age);
+    return personAsString;
+}

@@ -13,6 +13,7 @@ private:
     std::string surname;
     int age;
 public:
+    // T need to have constructor without parameters
     Person();
     ~Person() = default;
     Person(std::string name, std::string surname, int age);
@@ -20,13 +21,12 @@ public:
     int getAge() const { return age; }
     std::string getName() const { return name; }
     std::string getSurname() const { return surname; }
-
+    // T need to have implemented function equals(obj) for non-Node based generic collections
     bool equals(Person other);
-
-    std::string toString(){
-        std::string personAsString = "Name : " + name + " Surname : " + surname + " Age : " + std::to_string(age);
-        return personAsString;
-    }
+    // T need to have implemented function equals(*obj) for Node based generic collections
+    bool equals(Person *other);
+    // T need to have implemented function toString to print obj in terminal
+    std::string toString();
 };
 
 
