@@ -3,66 +3,46 @@
 
 #include <iostream>
 #include "node.h"
+#include "linked_list.h"
 template <typename T> class QueueNode;
 
 template <typename T>
-class QueueNode{
+class QueueNode : protected LinkedList<T>{
 private:
-    Node <T> *head;
-    Node <T> *tail;
-    int size{};
     int maxSize{};
 public:
     QueueNode() = default;
 
-    explicit QueueNode(int n){
-        head = new Node <T>(-1);
-        tail = new Node <T>(-1);
+    explicit QueueNode(int n) : LinkedList<T>(){
         maxSize = n;
-        size = 0;
     }
 
-    bool isEmpty(){ return size == 0; }
+    bool empty(){ return this-> isEmpty(); }
 
-    int enqueue(T item){
-        if (size >= maxSize){
-            return -1;
+    void enqueue(T *item){
+        if (maxSize <= this->length()){
+            return;
         }
-        auto *newNode = new Node<T>(item);
-        newNode->setNext(new Node<T>(-1));
-        if (size == 0){
-            head = newNode;
-            tail = newNode;
-        }else{
-            tail->setNext(newNode);
-            newNode->setPrevious(tail);
-            tail = newNode;
-        }
-        size++;
-        return 1;
+
+        this-> addLast(item);
     }
 
-    int dequeue(){
-        if (isEmpty()){
-            return -1;
-        }
-        int item = head -> getItem();
-        head = head ->getNext();
-        size--;
-        return item;
+    T *dequeue(){
+        return this->removeFirst();
     }
 
-    Node <T> *getHead(){ return head; }
-    Node <T> *getTail(){ return tail; }
-    int getSize(){ return size; }
+    Node <T> *getFirst(){ return this-> getHead(); }
+    Node <T> *getLast(){ return this-> getTail(); }
+
+    int getSize(){ return this-> length(); }
 
     void showItems(){
-        Node <T> *node = head;
-        while(node->getItem() != -1){
-            std::cout << node->getItem() << " ";
+        Node <T> *node = this-> getHead();
+        while(!node->getItem()-> equals(new T)){
+            std::cout << node->getItem()-> toString() << " ";
             node = node->getNext();
+            std::cout << std::endl;
         }
-        std::cout << std::endl;
     }
 
 };
