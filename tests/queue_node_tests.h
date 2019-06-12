@@ -3,60 +3,64 @@
 
 #include "../queue_node.h"
 #include <cassert>
+#include "../Models/Person.h"
 
 class queue_node_tests{
     int n;
+    Person *first_person = new Person("Maciek", "Maciegowski", 25);
+    Person *second_person = new Person("Kamil", "Macieg", 23);
+    Person *third_person = new Person("Pawel","Nowak", 18);
 public:
     explicit queue_node_tests(int n){ this -> n  = n; }
 
     void run_tests(){
-        testShow();
+//        testShow();
         testDequeue();
         testEnqueue();
         testIsEmpty();
     }
 
     void testIsEmpty(){
-        auto *queue = new QueueNode <int>(n);
-        assert(queue->isEmpty());
+        QueueNode<Person> queue = QueueNode <Person>(n);
+        assert(queue.empty());
     }
 
     void testEnqueue(){
-        auto *queue = new QueueNode <int>(n);
-        queue-> enqueue(5);
-        assert(queue-> getHead()->getItem() == 5);
-        assert(queue-> getTail()->getItem() == 5);
-        assert(queue-> getSize() == 1);
-        queue-> enqueue(1);
-        assert(queue-> getHead() -> getItem() == 5);
-        assert(queue-> getTail()->getItem() == 1);
-        assert(queue-> getSize() == 2);
-        queue-> enqueue(2);
-        assert(queue-> getHead() -> getItem() == 5);
-        assert(queue-> getHead()-> getNext()-> getItem() == 1);
-        assert(queue-> getTail()->getItem() == 2);
-        assert(queue-> getSize() == 3);
+        QueueNode<Person> queue = QueueNode <Person>(n);
+        queue.enqueue(first_person);
+        assert(queue.getFirst()-> getItem()-> equals(first_person));
+        assert(queue.getLast()-> getItem()-> equals(first_person));
+        assert(queue.getSize() == 1);
+        queue.enqueue(second_person);
+        assert(queue.getFirst() -> getItem()-> equals(first_person));
+        assert(queue.getLast()-> getItem()-> equals(second_person));
+        assert(queue.getSize() == 2);
+        queue.enqueue(third_person);
+        assert(queue.getFirst() -> getItem()-> equals(first_person));
+        assert(queue.getFirst()-> getNext()-> getItem()-> equals(second_person));
+        assert(queue.getLast()-> getItem()-> equals(third_person));
+        assert(queue.getSize() == 3);
     }
 
     void testDequeue(){
-        auto *queue = new QueueNode <int>(n);
-        queue-> enqueue(5);
-        queue-> enqueue(1);
-        assert(queue-> dequeue() == 5);
-        assert(queue->getHead()->getItem() == 1);
-        assert(queue->getTail()->getItem() == 1);
-        assert(queue->getSize() == 1);
+        QueueNode<Person> queue = QueueNode <Person>(n);
+        queue.enqueue(first_person);
+        queue.enqueue(second_person);
+        assert(queue.dequeue()-> equals(first_person));
+        assert(queue.getFirst()-> getItem()-> equals(second_person));
+        assert(queue.getLast()-> getItem()-> equals(second_person));
+        assert(queue.getSize() == 1);
     }
 
     void testShow(){
-        auto *queue = new QueueNode <int>(n);
-        queue-> enqueue(5);
-        queue-> enqueue(1);
-        queue-> enqueue(2);
-        queue-> showItems();
+        QueueNode<Person> queue = QueueNode <Person>(n);
+        queue.enqueue(first_person);
+        queue.enqueue(second_person);
+        queue.enqueue(third_person);
+        queue.showItems();
 
-        assert(queue-> getHead()->getItem() == 5);
-        assert(queue-> getTail()->getItem() == 2);
+        assert(queue.getFirst()->getItem()-> equals(first_person));
+        assert(queue.getLast()->getItem()-> equals(third_person));
     }
 };
 #endif //QUEUE_QUEUETEST_H
