@@ -3,7 +3,7 @@ Kolekcja struktur generycznych wzorowanych na strukturach udostępnionych w .NET
 
 #WAŻNE:
 
-Aby kolekcje działały poprawnie obiekt <T> musi implementować:
+Aby kolekcje działały poprawnie obiekt &#60;T musi implementować:
   
   -konstruktor bezparametrowy
   
