@@ -11,16 +11,21 @@ https://docs.microsoft.com/pl-pl/dotnet/api/system.collections.generic.ienumerat
 https://docs.microsoft.com/pl-pl/dotnet/api/system.collections.generic.icollection-1?view=netframework-4.8
 
 #List:
+
 https://docs.microsoft.com/pl-pl/dotnet/api/system.collections.generic.list-1?view=netframework-4.8
 
 #Queue:
+
 https://docs.microsoft.com/pl-pl/dotnet/api/system.collections.generic.queue-1?view=netframework-4.8
 
 #Stack:
+
 https://docs.microsoft.com/pl-pl/dotnet/api/system.collections.generic.stack-1?view=netframework-4.8
 
 #LinkedList:
+
 https://docs.microsoft.com/pl-pl/dotnet/api/system.collections.generic.linkedlistnode-1?view=netframework-4.8
 
 #QueueNode:
+
 Na podstawie queue tylko, że przy użyciu Node.
