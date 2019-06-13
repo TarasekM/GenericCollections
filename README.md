@@ -2,6 +2,7 @@
 Kolekcja struktur generycznych wzorowanych na strukturach udostępnionych w .NET 4.8 C#.
 
 Implementacja klas i metod jest całkowcie napisana przeze mnie. Natomiast przy nazwach metod wzorowałem się na poniższych dokumentacjach:
+
 #Iterator:
 
 https://docs.microsoft.com/pl-pl/dotnet/api/system.collections.generic.ienumerator-1?view=netframework-4.8
