@@ -4,9 +4,13 @@ Kolekcja struktur generycznych wzorowanych na strukturach udostępnionych w .NET
 #WAŻNE:
 
 Aby kolekcje działały poprawnie obiekt <T> musi implementować:
+  
   -konstruktor bezparametrowy
+  
   -metodę equals przyjmującą const T
+  
   -metodę equals przyjmującą wskaźnik na obiekt T
+  
   -metodę toString
 
 Implementacja klas i metod jest całkowcie napisana przeze mnie. Natomiast przy nazwach metod wzorowałem się na poniższych dokumentacjach:
