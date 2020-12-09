@@ -41,4 +41,4 @@ https://docs.microsoft.com/pl-pl/dotnet/api/system.collections.generic.linkedlis
 
 <h3>QueueNode&#60;T&#62;:</h3>
 
-Na podstawie queue tylko, że przy użyciu Node.
+Na podstawie queue tylko, że przy użyciu węzłów (Nodes).
